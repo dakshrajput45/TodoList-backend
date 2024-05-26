@@ -9,7 +9,7 @@ app.use(express.json());
 
 
 
-
+const PORT = process.env.PORT || PORT
 const url = "mongodb+srv://dakshr050:DakshRajput.in45@cluster-todo.jnnsqyb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster-todo";
 const JWT_SECRET = "dbvijsdbnvosnvoisdnvonweovnweoinvwnvsdiv";
 
@@ -26,8 +26,12 @@ require("./userDetails")
 
 const User = mongoose.model("UserInfo");
 
-app.listen(5000, () => {
+app.listen(PORT, () => {
   console.log("jai shree ram");
+})
+
+app.use("/home",async(req,res)=> {
+  res.send("jai Shree ram");
 })
 
 app.post("/post", async (req, res) => {
